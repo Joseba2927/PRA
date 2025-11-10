@@ -1,6 +1,7 @@
 #include <ostream>
 #include "List.h"
 #include "Node.h"
+using namespace std
 
 template <typename T>
 class ListLinked : public List<T> {
@@ -26,7 +27,7 @@ public:
     // Sobrecarga del operador []
     T operator[](int pos) override {
         if (pos < 0 || pos >= n) {
-            throw std::out_of_range("Posición inválida");
+            throw out_of_range("Posición inválida");
         }
         Node<T>* aux = first;
         for (int i = 0; i < pos; ++i) {
@@ -65,7 +66,7 @@ public:
 
     T remove(int pos) override {
         if (pos < 0 || pos >= n) {
-            throw std::out_of_range("Posición inválida");
+            throw out_of_range("Posición inválida");
         }
         Node<T>* toDelete;
         T removedData;
@@ -99,7 +100,7 @@ public:
     }
 
     // Sobrecarga del operador << para imprimir la lista
-    friend std::ostream& operator<<(std::ostream& out, const ListLinked<T>& list) {
+    friend ostream& operator<<(ostream& out, const ListLinked<T>& list) {
         Node<T>* aux = list.first;
         out << "[";
         while (aux != nullptr) {
