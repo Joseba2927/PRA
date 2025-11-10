@@ -55,7 +55,7 @@ class ListArray : public List<T> {
 	//para insertar en posicion concreta
 	 void insert(int pos, T e) {
         if (pos < 0 || pos > n) {
-            throw std::out_of_range("Error en posicion");
+            throw out_of_range("Error en posicion");
         }
         if (n == max) {
             resize(max * 2);  
